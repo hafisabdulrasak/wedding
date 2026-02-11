@@ -5,57 +5,58 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hafis ❤️ Fidha | Wedding Invitation</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --gold:#d4af37;
-  --goldSoft:#f6e27a;
-  --black:#0a0a0a;
+  --pink:#e8aeb7;
+  --rose:#d88196;
+  --soft:#fff7f9;
+  --text:#5a4a4d;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
   font-family:'Inter',sans-serif;
-  background:linear-gradient(135deg,#000,#111);
-  color:#fff;
+  background:linear-gradient(135deg,#fff,#ffeef2);
+  color:var(--text);
   min-height:100vh;
   padding:20px;
   overflow-x:hidden;
-  animation:fadeIn 1.8s ease;
+  animation:fadeIn 1.5s ease;
 }
 
 @keyframes fadeIn{
-  from{opacity:0;transform:translateY(30px)}
+  from{opacity:0;transform:translateY(20px)}
   to{opacity:1;transform:translateY(0)}
 }
 
-/* Romantic golden glow */
+/* Soft pink glow */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   background:
-    radial-gradient(circle at 20% 30%, rgba(212,175,55,.18), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(246,226,122,.12), transparent 50%);
+    radial-gradient(circle at 20% 30%, rgba(216,129,150,.15), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(232,174,183,.2), transparent 50%);
   z-index:-1;
 }
 
-/* Falling petals */
+/* Rose petals */
 .petals{
   position:fixed;
   inset:0;
   pointer-events:none;
   overflow:hidden;
-  opacity:.3;
+  opacity:.4;
 }
 .petal{
   position:absolute;
   top:-10vh;
   width:10px;
   height:14px;
-  background:radial-gradient(circle at 30% 30%, var(--goldSoft), var(--gold));
+  background:radial-gradient(circle at 30% 30%, #ffccd5, var(--rose));
   border-radius:50%;
   animation:fall linear infinite;
 }
@@ -63,47 +64,42 @@ body::before{
   to{transform:translateY(120vh) rotate(180deg);}
 }
 
-/* Main card */
+/* Card */
 .container{
-  background:rgba(255,255,255,.05);
-  backdrop-filter:blur(18px);
-  border:1px solid rgba(212,175,55,.3);
+  background:var(--soft);
   border-radius:28px;
   padding:40px 25px;
   max-width:950px;
   margin:auto;
   text-align:center;
-  box-shadow:0 0 60px rgba(212,175,55,.15);
+  box-shadow:0 20px 50px rgba(216,129,150,.2);
 }
 
-/* Islamic header */
+/* Header */
 .arabic{
-  font-size:20px;
-  color:var(--goldSoft);
+  font-size:18px;
+  color:var(--rose);
   margin-bottom:6px;
 }
 .subtitle{
-  font-size:12px;
-  letter-spacing:.25em;
+  font-size:11px;
+  letter-spacing:.2em;
   text-transform:uppercase;
-  color:#ccc;
+  color:#9b7c82;
   margin-bottom:25px;
 }
 
-/* Names */
 h1{
   font-family:'Playfair Display',serif;
-  font-size:32px;
-  background:linear-gradient(90deg,var(--goldSoft),#fff,var(--gold));
-  -webkit-background-clip:text;
-  color:transparent;
+  font-size:30px;
+  color:var(--rose);
   margin-bottom:15px;
 }
 
 .tagline{
   font-size:15px;
   margin-bottom:35px;
-  color:#ddd;
+  color:#7a5c61;
 }
 
 /* Countdown layout */
@@ -117,29 +113,25 @@ h1{
 }
 
 .section{
-  background:rgba(255,255,255,.06);
+  background:#fff;
   padding:25px 18px;
-  border-radius:24px;
-  border:1px solid rgba(212,175,55,.25);
+  border-radius:22px;
+  border:1px solid #f2d4da;
   flex:1;
-  transition:.3s;
-}
-.section:hover{
-  box-shadow:0 0 35px rgba(212,175,55,.25);
 }
 
 .section h2{
-  font-size:14px;
+  font-size:13px;
   letter-spacing:.2em;
   text-transform:uppercase;
   margin-bottom:10px;
-  color:var(--goldSoft);
+  color:var(--rose);
 }
 
 .venue{
   font-size:14px;
   margin-bottom:18px;
-  color:#ccc;
+  color:#8a6c71;
 }
 
 /* Countdown grid */
@@ -153,23 +145,22 @@ h1{
 }
 
 .box{
-  background:rgba(0,0,0,.6);
+  background:#fff5f7;
   padding:14px;
-  border-radius:16px;
-  border:1px solid rgba(212,175,55,.25);
+  border-radius:14px;
 }
 
 .number{
   font-size:22px;
   font-weight:bold;
-  color:var(--goldSoft);
+  color:var(--rose);
 }
 
 .label{
   font-size:10px;
   letter-spacing:.2em;
   text-transform:uppercase;
-  color:#aaa;
+  color:#a07b82;
 }
 
 /* Buttons */
@@ -178,8 +169,8 @@ h1{
   display:inline-block;
   padding:10px 22px;
   border-radius:50px;
-  background:linear-gradient(90deg,var(--gold),var(--goldSoft));
-  color:#000;
+  background:linear-gradient(90deg,var(--rose),var(--pink));
+  color:#fff;
   font-weight:600;
   text-decoration:none;
   font-size:12px;
@@ -187,22 +178,22 @@ h1{
 }
 .btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 10px 25px rgba(212,175,55,.4);
+  box-shadow:0 8px 20px rgba(216,129,150,.3);
 }
 
 .footer{
   margin-top:35px;
   font-size:13px;
-  color:#bbb;
+  color:#9b7c82;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Soft Romantic Instrumental (Free Demo Track) -->
+<!-- Slow Romantic Instrumental -->
 <audio id="bgAudio" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
 </audio>
 
 <div class="petals" id="petals"></div>
@@ -261,20 +252,19 @@ h1{
 
   <br>
 
-  <!-- Calendar Buttons -->
   <a class="btn" target="_blank"
      href="https://www.google.com/calendar/render?action=TEMPLATE&text=Hafis+%26+Fidha+Wedding&dates=20261206T043000Z/20261207T133000Z&details=Nikah+%26+Reception&location=Kerala">
      Add to Google Calendar
   </a>
 
   <div class="footer">
-    We would be honored by your presence ✨
+    We would be honored by your presence 🌸
   </div>
 
 </div>
 
 <script>
-/* Play music after first tap (mobile compatible) */
+/* Play music after first tap */
 document.addEventListener("click", function(){
   document.getElementById("bgAudio").play();
 },{once:true});
@@ -307,7 +297,7 @@ for(let i=0;i<20;i++){
   const p=document.createElement("div");
   p.className="petal";
   p.style.left=Math.random()*100+"vw";
-  p.style.animationDuration=(12+Math.random()*10)+"s";
+  p.style.animationDuration=(10+Math.random()*8)+"s";
   petals.appendChild(p);
 }
 </script>
