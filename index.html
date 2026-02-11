@@ -3,196 +3,313 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hafis ❤️ Fidha | Wedding Countdown</title>
+<title>Hafis ❤️ Fidha | Wedding Invitation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --primary:#b76e79;      /* Rose gold */
-  --secondary:#fff8f6;    /* Soft ivory */
-  --accent:#e8b4b8;       /* Blush */
-  --dark:#3a2e2e;
+  --gold:#d4af37;
+  --goldSoft:#f6e27a;
+  --black:#0a0a0a;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
+  font-family:'Inter',sans-serif;
+  background:linear-gradient(135deg,#000,#111);
+  color:#fff;
   min-height:100vh;
-  background: linear-gradient(135deg, #fff8f6, #fde2e4);
-  display:flex;
-  align-items:center;
-  justify-content:center;
   padding:20px;
-  overflow:hidden;
-}
-
-/* Floating hearts background */
-body::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: radial-gradient(circle at 20% 30%, rgba(183,110,121,.15), transparent 40%),
-              radial-gradient(circle at 80% 60%, rgba(232,180,184,.18), transparent 40%);
-  z-index:-1;
-}
-
-.container{
-  background:white;
-  padding:40px 30px;
-  border-radius:25px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.08);
-  max-width:800px;
-  width:100%;
-  text-align:center;
-  animation:fadeIn 1.2s ease;
+  overflow-x:hidden;
+  animation:fadeIn 1.8s ease;
 }
 
 @keyframes fadeIn{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
+/* Romantic golden glow */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(212,175,55,.18), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(246,226,122,.12), transparent 50%);
+  z-index:-1;
+}
+
+/* Falling petals */
+.petals{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  opacity:.3;
+}
+.petal{
+  position:absolute;
+  top:-10vh;
+  width:10px;
+  height:14px;
+  background:radial-gradient(circle at 30% 30%, var(--goldSoft), var(--gold));
+  border-radius:50%;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(120vh) rotate(180deg);}
+}
+
+/* Main card */
+.container{
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(212,175,55,.3);
+  border-radius:28px;
+  padding:40px 25px;
+  max-width:950px;
+  margin:auto;
+  text-align:center;
+  box-shadow:0 0 60px rgba(212,175,55,.15);
+}
+
+/* Islamic header */
+.arabic{
+  font-size:20px;
+  color:var(--goldSoft);
+  margin-bottom:6px;
+}
+.subtitle{
+  font-size:12px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:#ccc;
+  margin-bottom:25px;
+}
+
+/* Names */
 h1{
-  font-size:38px;
-  color:var(--primary);
+  font-family:'Playfair Display',serif;
+  font-size:32px;
+  background:linear-gradient(90deg,var(--goldSoft),#fff,var(--gold));
+  -webkit-background-clip:text;
+  color:transparent;
+  margin-bottom:15px;
+}
+
+.tagline{
+  font-size:15px;
+  margin-bottom:35px;
+  color:#ddd;
+}
+
+/* Countdown layout */
+.countdown-wrapper{
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+}
+@media(min-width:768px){
+  .countdown-wrapper{flex-direction:row;}
+}
+
+.section{
+  background:rgba(255,255,255,.06);
+  padding:25px 18px;
+  border-radius:24px;
+  border:1px solid rgba(212,175,55,.25);
+  flex:1;
+  transition:.3s;
+}
+.section:hover{
+  box-shadow:0 0 35px rgba(212,175,55,.25);
+}
+
+.section h2{
+  font-size:14px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
   margin-bottom:10px;
-}
-
-h2{
-  font-weight:400;
-  color:var(--dark);
-  margin-bottom:20px;
-}
-
-.date{
-  font-size:18px;
-  color:var(--primary);
-  margin-bottom:8px;
+  color:var(--goldSoft);
 }
 
 .venue{
-  font-size:15px;
-  color:#666;
-  margin-bottom:30px;
-  line-height:1.6;
+  font-size:14px;
+  margin-bottom:18px;
+  color:#ccc;
 }
 
-/* Countdown */
-.countdown{
+/* Countdown grid */
+.grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:15px;
-  margin-bottom:30px;
+  gap:10px;
+}
+@media(max-width:500px){
+  .grid{grid-template-columns:repeat(2,1fr);}
 }
 
 .box{
-  background:linear-gradient(135deg,#fde2e4,#fff8f6);
-  padding:20px 10px;
-  border-radius:18px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  background:rgba(0,0,0,.6);
+  padding:14px;
+  border-radius:16px;
+  border:1px solid rgba(212,175,55,.25);
 }
 
 .number{
-  font-size:32px;
+  font-size:22px;
   font-weight:bold;
-  color:var(--primary);
+  color:var(--goldSoft);
 }
 
 .label{
-  font-size:12px;
+  font-size:10px;
+  letter-spacing:.2em;
   text-transform:uppercase;
-  letter-spacing:2px;
-  color:#777;
-  margin-top:6px;
+  color:#aaa;
 }
 
-/* Footer */
+/* Buttons */
+.btn{
+  margin-top:14px;
+  display:inline-block;
+  padding:10px 22px;
+  border-radius:50px;
+  background:linear-gradient(90deg,var(--gold),var(--goldSoft));
+  color:#000;
+  font-weight:600;
+  text-decoration:none;
+  font-size:12px;
+  transition:.3s;
+}
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 25px rgba(212,175,55,.4);
+}
+
 .footer{
+  margin-top:35px;
   font-size:13px;
-  color:#999;
-  margin-top:10px;
-}
-
-@media(max-width:600px){
-  .countdown{
-    grid-template-columns:repeat(2,1fr);
-  }
+  color:#bbb;
 }
 </style>
 </head>
 
 <body>
 
+<!-- Soft Romantic Instrumental (Free Demo Track) -->
+<audio id="bgAudio" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="petals" id="petals"></div>
+
 <div class="container">
 
+  <div class="arabic">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+  <div class="subtitle">In the Name of Allah • InshaAllah</div>
+
   <h1>Hafis Abdul Rasak ❤️ Fidha Nazar</h1>
-  <h2>Are Getting Married</h2>
-
-  <div class="date">
-    December 6 & 7, 2026
+  <div class="tagline">
+    Together with our families, we invite you to celebrate our Nikah & Reception.
   </div>
 
-  <div class="venue">
-    CK Auditorium<br>
-    Palappety, Malappuram, Kerala
+  <div class="countdown-wrapper">
+
+    <!-- Nikah -->
+    <div class="section">
+      <h2>Nikah – December 6, 2026</h2>
+      <div class="venue">
+        TMK Auditorium, Vadakkekad<br>
+        Thrissur, Kerala
+      </div>
+      <div class="grid">
+        <div class="box"><div class="number" id="nDays">00</div><div class="label">Days</div></div>
+        <div class="box"><div class="number" id="nHours">00</div><div class="label">Hours</div></div>
+        <div class="box"><div class="number" id="nMinutes">00</div><div class="label">Minutes</div></div>
+        <div class="box"><div class="number" id="nSeconds">00</div><div class="label">Seconds</div></div>
+      </div>
+      <a class="btn" target="_blank"
+         href="https://www.google.com/maps/search/?api=1&query=TMK+Auditorium+Vadakkekad+Thrissur+Kerala">
+         View Location
+      </a>
+    </div>
+
+    <!-- Reception -->
+    <div class="section">
+      <h2>Reception – December 7, 2026</h2>
+      <div class="venue">
+        CK Auditorium, Palappety<br>
+        Malappuram, Kerala
+      </div>
+      <div class="grid">
+        <div class="box"><div class="number" id="rDays">00</div><div class="label">Days</div></div>
+        <div class="box"><div class="number" id="rHours">00</div><div class="label">Hours</div></div>
+        <div class="box"><div class="number" id="rMinutes">00</div><div class="label">Minutes</div></div>
+        <div class="box"><div class="number" id="rSeconds">00</div><div class="label">Seconds</div></div>
+      </div>
+      <a class="btn" target="_blank"
+         href="https://www.google.com/maps/search/?api=1&query=CK+Auditorium+Palappety+Malappuram+Kerala">
+         View Location
+      </a>
+    </div>
+
   </div>
 
-  <div class="countdown">
-    <div class="box">
-      <div class="number" id="days">00</div>
-      <div class="label">Days</div>
-    </div>
-    <div class="box">
-      <div class="number" id="hours">00</div>
-      <div class="label">Hours</div>
-    </div>
-    <div class="box">
-      <div class="number" id="minutes">00</div>
-      <div class="label">Minutes</div>
-    </div>
-    <div class="box">
-      <div class="number" id="seconds">00</div>
-      <div class="label">Seconds</div>
-    </div>
-  </div>
+  <br>
+
+  <!-- Calendar Buttons -->
+  <a class="btn" target="_blank"
+     href="https://www.google.com/calendar/render?action=TEMPLATE&text=Hafis+%26+Fidha+Wedding&dates=20261206T043000Z/20261207T133000Z&details=Nikah+%26+Reception&location=Kerala">
+     Add to Google Calendar
+  </a>
 
   <div class="footer">
-    With love & prayers, we invite you to celebrate our special day ✨
+    We would be honored by your presence ✨
   </div>
 
 </div>
 
 <script>
-// Set wedding date (Dec 6, 2026 at 9:00 AM IST)
-const weddingDate = new Date("December 6, 2026 09:00:00 GMT+0530").getTime();
+/* Play music after first tap (mobile compatible) */
+document.addEventListener("click", function(){
+  document.getElementById("bgAudio").play();
+},{once:true});
 
-function updateCountdown(){
-  const now = new Date().getTime();
-  const diff = weddingDate - now;
+/* Countdown */
+const nikahDate=new Date("2026-12-06T10:00:00+05:30").getTime();
+const receptionDate=new Date("2026-12-07T18:00:00+05:30").getTime();
 
-  if(diff <= 0){
-    document.querySelector(".countdown").innerHTML =
-      "<h2>It's Wedding Time! 🎉❤️</h2>";
-    return;
-  }
-
-  const days = Math.floor(diff / (1000*60*60*24));
-  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-  const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
-  const seconds = Math.floor((diff % (1000*60)) / 1000);
-
-  document.getElementById("days").innerText = days;
-  document.getElementById("hours").innerText = hours;
-  document.getElementById("minutes").innerText = minutes;
-  document.getElementById("seconds").innerText = seconds;
+function updateCountdown(target,prefix){
+  const now=new Date().getTime();
+  const diff=target-now;
+  if(diff<=0)return;
+  const d=Math.floor(diff/(1000*60*60*24));
+  const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const m=Math.floor((diff%(1000*60*60))/(1000*60));
+  const s=Math.floor((diff%(1000*60))/1000);
+  document.getElementById(prefix+"Days").innerText=d;
+  document.getElementById(prefix+"Hours").innerText=h;
+  document.getElementById(prefix+"Minutes").innerText=m;
+  document.getElementById(prefix+"Seconds").innerText=s;
 }
+setInterval(()=>{
+  updateCountdown(nikahDate,"n");
+  updateCountdown(receptionDate,"r");
+},1000);
 
-setInterval(updateCountdown,1000);
-updateCountdown();
+/* Petals */
+const petals=document.getElementById("petals");
+for(let i=0;i<20;i++){
+  const p=document.createElement("div");
+  p.className="petal";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(12+Math.random()*10)+"s";
+  petals.appendChild(p);
+}
 </script>
 
 </body>
