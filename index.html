@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hafis ❤️ Fidha | Wedding Invitation</title>
 
+<!-- Social Share Preview -->
+<meta property="og:title" content="Hafis ❤️ Fidha | Wedding Invitation">
+<meta property="og:description" content="Join us for our Nikah & Reception on December 6 & 7, 2026.">
+<meta property="og:url" content="https://hafisabdulrasak.github.io/wedding/">
+
+<!-- Favicon Love -->
+<link rel="icon" type="image/svg+xml"
+href="data:image/svg+xml,
+%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E
+%3Ctext y='.9em' font-size='90'%3E💗%3C/text%3E
+%3C/svg%3E">
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -32,7 +44,6 @@ body{
   to{opacity:1;transform:translateY(0)}
 }
 
-/* Soft pink glow */
 body::before{
   content:"";
   position:fixed;
@@ -43,7 +54,7 @@ body::before{
   z-index:-1;
 }
 
-/* Rose petals */
+/* Petals */
 .petals{
   position:fixed;
   inset:0;
@@ -94,6 +105,19 @@ h1{
   font-size:30px;
   color:var(--rose);
   margin-bottom:15px;
+  text-shadow:0 0 15px rgba(216,129,150,.25);
+}
+
+.heart{
+  display:inline-block;
+  animation:pulse 1.8s infinite;
+  color:var(--rose);
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.2);}
+  100%{transform:scale(1);}
 }
 
 .tagline{
@@ -102,7 +126,7 @@ h1{
   color:#7a5c61;
 }
 
-/* Countdown layout */
+/* Layout */
 .countdown-wrapper{
   display:flex;
   flex-direction:column;
@@ -134,7 +158,7 @@ h1{
   color:#8a6c71;
 }
 
-/* Countdown grid */
+/* Countdown */
 .grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -151,7 +175,7 @@ h1{
 }
 
 .number{
-  font-size:22px;
+  font-size:24px;
   font-weight:bold;
   color:var(--rose);
 }
@@ -167,7 +191,7 @@ h1{
 .btn{
   margin-top:14px;
   display:inline-block;
-  padding:10px 22px;
+  padding:12px 26px;
   border-radius:50px;
   background:linear-gradient(90deg,var(--rose),var(--pink));
   color:#fff;
@@ -186,20 +210,27 @@ h1{
   font-size:13px;
   color:#9b7c82;
 }
+
+/* Music Button */
+#musicToggle{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:var(--rose);
+  color:white;
+  border:none;
+  border-radius:50%;
+  width:45px;
+  height:45px;
+  font-size:18px;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+  cursor:pointer;
+}
 </style>
-  
-<!-- Love Favicon -->
-<link rel="icon" type="image/svg+xml" 
-href="data:image/svg+xml,
-%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E
-%3Ctext y='.9em' font-size='90'%3E💗%3C/text%3E
-%3C/svg%3E">
-  
 </head>
 
 <body>
 
-<!-- Slow Romantic Instrumental -->
 <audio id="bgAudio" loop>
   <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
 </audio>
@@ -208,17 +239,21 @@ href="data:image/svg+xml,
 
 <div class="container">
 
-  <div class="arabic">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+  <div class="arabic">بِسْمِ ٱللَّٰهِ ٱلرَّحْمِ ٱلرَّحِيمِ</div>
   <div class="subtitle">In the Name of Allah • InshaAllah</div>
 
-  <h1>Hafis Abdul Rasak ❤️ Fidha Nazar</h1>
+  <h1>
+    Hafis Abdul Rasak 
+    <span class="heart">❤</span> 
+    Fidha Nazar
+  </h1>
+
   <div class="tagline">
     Together with our families, we invite you to celebrate our Nikah & Reception.
   </div>
 
   <div class="countdown-wrapper">
 
-    <!-- Nikah -->
     <div class="section">
       <h2>Nikah – December 6, 2026</h2>
       <div class="venue">
@@ -237,7 +272,6 @@ href="data:image/svg+xml,
       </a>
     </div>
 
-    <!-- Reception -->
     <div class="section">
       <h2>Reception – December 7, 2026</h2>
       <div class="venue">
@@ -271,11 +305,22 @@ href="data:image/svg+xml,
 
 </div>
 
+<button id="musicToggle">🎵</button>
+
 <script>
-/* Play music after first tap */
-document.addEventListener("click", function(){
-  document.getElementById("bgAudio").play();
-},{once:true});
+/* Music toggle */
+const audio=document.getElementById("bgAudio");
+const toggle=document.getElementById("musicToggle");
+
+toggle.onclick=function(){
+  if(audio.paused){
+    audio.play();
+    toggle.innerHTML="🔊";
+  }else{
+    audio.pause();
+    toggle.innerHTML="🎵";
+  }
+}
 
 /* Countdown */
 const nikahDate=new Date("2026-12-06T10:00:00+05:30").getTime();
